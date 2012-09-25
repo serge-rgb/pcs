@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    background: #212121
-
+    background: #212121;
 }
 
 html {
@@ -46,7 +45,7 @@ input {
 }
 
 #wrapper {
-    width: 1000px;
+    width: 1100px;
     margin: 0 auto;
     min-height: 100%;
     height: auto !important;
@@ -56,7 +55,6 @@ input {
 #middle {
     width: 100%;
     padding: 0 0 100px;
-    height: 1;
     position: relative;
 }
 
@@ -79,7 +77,7 @@ input {
     text-align: center;
 }
 
-#sideLeft {
+#side_left {
     float: left;
     width: 250px;
     margin-left: -100%;
@@ -88,20 +86,25 @@ input {
 }
 
 
-#sideRight {
+#side_right {
     float: left;
     margin-right: -3px;
     width: 250px;
     margin-top: 50px;
-    padding: 5px 0 0 0;
+    padding: 10px 0 10px 0;
     margin-left: -250px;
     position: relative;
     background: #333333;
 }
 
+#daniel_descr {
+    margin-left: 10px;
+    background: #333333;
+}
+
 
 #footer {
-    width: 1000px;
+    width: 1100px;
     margin: -40px auto 0;
     height: 20px;
     position: relative;
@@ -110,4 +113,11 @@ input {
 
 #daniel_pic {
     width: 230px;
+    margin-bottom: 20px;
+}
+
+.middle_banner {
+    margin: 20px 0 20px 0;
+    width: 560;
+    float: block;
 }
