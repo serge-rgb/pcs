@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap 101 Template</title>
+<title>dan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href={{ bootstrap_css_fname }} rel="stylesheet">
@@ -43,11 +43,29 @@
 			<div class="row">
 				{% for album in albums %}
 				<div class="col-sm-1" class="img-responsive">
-					<img alt="" src="{{ album.img }}">
-					<p class='lead'>{{ album.text }}</p>
+					<img id="{{ album.text }}" src="{{ album.img }}"
+						class="img-responsive" />
+					<p>{{ album.text }}</p>
 				</div>
 				{% endfor %}
 			</div>
+			{% for album in albums %}
+			<table class="table">
+				<tbody>
+					{% for track in album.tracks %}
+					{% set tid = album.text + "-" + track.split('/')[-1] %}
+					<tr>
+						<td id="{{ tid }}-table">
+							<p id="{{tid}}-title" class="lead">{{track.split('/')[-1]}}</p>
+							<div id="{{tid}}-url" hidden=true>
+								{{ track }}</div>
+							<iframe id="{{tid}}-iframe" hidden=true></iframe>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endfor %}
 		</div>
 
 	</div>
@@ -60,5 +78,14 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src={{bootstrap_js_fname}}></script>
+	<script src="http://connect.soundcloud.com/sdk.js">
+		
+	</script>
+	<script>
+		SC.initialize({
+			client_id : 'feadf530fe2b6e545774f60b12b24cf2'
+		});
+	</script>
+	<script type="text/javascript" src="{{ dan_js_fname }}"></script>
 </body>
 </html>
