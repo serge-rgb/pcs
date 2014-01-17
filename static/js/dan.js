@@ -1,26 +1,28 @@
-function getTitle(url, element) {
-	console.log("getting title for: " + url);
-	SC.get(url, function(tracks) {
-		console.log("title is: " + tracks[0].title);
-	});
-}
-
 function getIframe(url, element) {
 	console.log("getting iframe for: " + url);
-	var html = "<iframe/>";
-	SC.oEmbed(url, {}, function(oembed) {
+	SC.oEmbed(url, {
+		auto_play : false
+	}, function(oembed) {
 		console.log('embed return: ' + oembed.title)
 		console.log('embed return: ' + oembed.html)
 		element.html(oembed.html);
 	});
-} 
+}
 
 $(document).ready(function() {
-	$("#foo").click(function() {
-		var id = $("#foo-last-time-url").html();
-		getTitle(id, $("#foo-last-time-title"));
+	$(".album-table").each(function() {
+		$(this).find(".track").each(function() {
+			getIframe($(this).find(".track-url").html(),
+					$(this).find(".track-title"));
+		});
 	});
-	$("#foo-last-time-table").click(function() {
-		console.log($("#foo-last-time-url").html());
+	$(".album-button").click(function() {
+		var row = "album-" + $(this).attr("id");
+		var element = $(document).find("#"+row);
+		element.toggle();
+	});
+	$(".track").click(function(e) {
+		var url = $(this).find(".track-url").html();
+		getIframe(url, $(this).find(".track-title"));
 	})
 });

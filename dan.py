@@ -2,11 +2,13 @@ from flask import Flask
 from jinja2 import Template
 from fileinput import close
 from mimetypes import init
+import soundcloud
 
 USE_MIN = False
 USE_MIN = True
 
 MIN_BLACKLIST = ['js/dan.js', 'css/dan.css']
+
 
 def static(name):
     'foo.ext -> (foo.ext | foo.min.ext)'
@@ -23,27 +25,49 @@ def static(name):
 
     return "NOPE"
 
-
 app = Flask(__name__)
 app.debug = True
 
 
+class Track(object):
+    def __init__(self, client, url):
+        self.url = url
+        self.sc = client.get('/resolve', url=url)
+
+
 class Album(object):
-    def __init__(self, img, text, tracks):
+    def __init__(self, title, img, tracks):
+        self.title = title
         self.img = img
-        self.text = text
         self.tracks = tracks
 
 
+def dan_init():
+    pass
+
+################################################################################
+
+client = soundcloud.Client(client_id="feadf530fe2b6e545774f60b12b24cf2")
+albums = [Album('foo',
+                static('img/Placeholder.png'),
+                [Track(client,
+                       'https://soundcloud.com/dan_music/last-time')]),
+          Album('bar',
+                static('img/Placeholder.png'),
+                [Track(client,
+                       'https://soundcloud.com/dan_music/google-plex-v-hope'),
+                 Track(client,
+                       'https://soundcloud.com/dan_music/googleplex-iv-home'),
+                 ]),
+          ]
+
+
 @app.route('/')
-def hello_world():
+def dan_main():
     dan_file = open('templates/dan.html')
     dan_src = dan_file.read()
     dan_file.close()
     tmpl = Template(dan_src)
-    albums = [Album(static('img/Placeholder.png'),
-                    'foo',
-                    ['https://soundcloud.com/dan_music/last-time'])]
     index_str = tmpl.render(name='Daniel',
                         bootstrap_js_fname=static('js/bootstrap.js'),
                         bootstrap_css_fname=static('css/bootstrap.css'),
@@ -55,6 +79,7 @@ def hello_world():
 
 
 if __name__ == '__main__':
+    dan_init()
 #     app.debug = False
     app.run(host='0.0.0.0')
 #     app.run()

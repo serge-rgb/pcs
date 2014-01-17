@@ -43,23 +43,23 @@
 			<div class="row">
 				{% for album in albums %}
 				<div class="col-sm-1" class="img-responsive">
-					<img id="{{ album.text }}" src="{{ album.img }}"
-						class="img-responsive" />
-					<p>{{ album.text }}</p>
+					<img id="{{ album.title }}" src="{{ album.img }}"
+						class="img-responsive  album-button" />
+					<p>{{ album.title }}</p>
 				</div>
 				{% endfor %}
 			</div>
+			<!-- TODO: only show current album. -->
 			{% for album in albums %}
-			<table class="table">
+			<table class="table album-table" id='album-{{album.title}}' hidden = true>
 				<tbody>
 					{% for track in album.tracks %}
-					{% set tid = album.text + "-" + track.split('/')[-1] %}
+					{% set tid = album.title + "-" + track.url.split('/')[-1] %}
 					<tr>
-						<td id="{{ tid }}-table">
-							<p id="{{tid}}-title" class="lead">{{track.split('/')[-1]}}</p>
-							<div id="{{tid}}-url" hidden=true>
-								{{ track }}</div>
-							<iframe id="{{tid}}-iframe" hidden=true></iframe>
+						<td class="track">
+							<p class="lead track-title">{{track.sc.title}}</p>
+							<div class="track-url" hidden=true>
+								{{ track.url }}</div>
 						</td>
 					</tr>
 					{% endfor %}
