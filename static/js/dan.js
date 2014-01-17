@@ -14,7 +14,8 @@ function scope() {
 		console.log("getting iframe for: " + url);
 		SC.oEmbed(url, {
 			auto_play : false,
-			maxwidth : 640,
+			maxheight : 100,
+			maxwidth : 600,
 			color : "660066",
 		}, function(oembed) {
 			console.log('embed return: ' + oembed.title)
@@ -25,6 +26,16 @@ function scope() {
 
 	$(document).ready(
 			function() {
+				$("#dan-body").show()
+				$("#button-body").click(function() {
+					$("#dan-contact").hide();
+					$("#dan-body").show();
+				});
+				$("#button-contact").click(function() {
+					$("#dan-contact").show();
+					$("#dan-body").hide();
+				});
+
 				$(".album-table").each(
 						function() {
 							$(this).find(".track").each(
@@ -45,5 +56,4 @@ function scope() {
 				})
 			});
 };
-
 scope();

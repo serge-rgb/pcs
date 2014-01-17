@@ -23,7 +23,7 @@ def static(name):
     if USE_MIN and ext == 'js' or ext == 'css' and not (name in MIN_BLACKLIST):
         return prelude + fname + '.min.' + ext
 
-    return "NOPE"
+    return 'NOPE'
 
 app = Flask(__name__)
 app.debug = True
@@ -46,8 +46,13 @@ def dan_init():
     pass
 
 ################################################################################
-
 client = soundcloud.Client(client_id="feadf530fe2b6e545774f60b12b24cf2")
+
+dan_descr = '''
+Daniel Gonzalez
+dgonzalez@berklee.edu
+'''
+
 albums = [Album('foo',
                 static('img/Placeholder.png'),
                 [Track(client,
@@ -74,6 +79,7 @@ def dan_main():
                         dan_css_fname=static('css/dan.css'),
                         dan_js_fname=static('js/dan.js'),
                         albums=albums,
+                        dan_descr=dan_descr,
                         )
     return index_str
 

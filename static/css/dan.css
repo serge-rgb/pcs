@@ -8,3 +8,10 @@ body {
 	text-align: center;
 
 }
+
+.album-col {
+	width: 96px;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
