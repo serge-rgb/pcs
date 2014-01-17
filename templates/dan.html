@@ -45,7 +45,6 @@
 				<div class="col-sm-1" class="img-responsive">
 					<img id="{{ album.title }}" src="{{ album.img }}"
 						class="img-responsive  album-button" />
-					<p>{{ album.title }}</p>
 				</div>
 				{% endfor %}
 			</div>
@@ -57,7 +56,7 @@
 					{% set tid = album.title + "-" + track.url.split('/')[-1] %}
 					<tr>
 						<td class="track">
-							<p class="lead track-title">{{track.sc.title}}</p>
+							<p class="lead track-title">{{track.sc.title}} (...loading)</p>
 							<div class="track-url" hidden=true>
 								{{ track.url }}</div>
 						</td>
