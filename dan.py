@@ -69,6 +69,15 @@ albums = [Album('foo',
 
 @app.route('/')
 def dan_main():
+    def gen_contact_html(dan_descr):
+        lines = dan_descr.split('\n');
+        html = ''
+        for line in lines:
+            if len(line) <= 1:
+                continue
+            html += line + "<br>"
+        return html
+
     dan_file = open('templates/dan.html')
     dan_src = dan_file.read()
     dan_file.close()
@@ -79,7 +88,7 @@ def dan_main():
                         dan_css_fname=static('css/dan.css'),
                         dan_js_fname=static('js/dan.js'),
                         albums=albums,
-                        dan_descr=dan_descr,
+                        dan_descr=gen_contact_html(dan_descr),
                         )
     return index_str
 

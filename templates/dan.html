@@ -17,77 +17,81 @@
     <![endif]-->
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand">dan</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li id="button-body" class="active"><a href="#">music</a></li>
-					<li id="button-contact"><a href="#contact">contact</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</div>
+    <div class="navbar navbar-inverse navbar-fixed-top"
+        role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">dan</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="button-body" class="active"><a href="#">music</a></li>
+                    <li id="button-contact"><a href="#contact">contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
 
-	<div class="container">
-		<div id="dan-body" hidden=1>
-			<div class="row album-row">
-				{% for album in albums %}
-				<div href="" class="col-sm-1 album-col">
-					<img id="{{ album.title }}" src="{{ album.img }}"
-						class="album-button" />
-				</div>
-				{% endfor %}
-			</div>
-			<!-- TODO: only show current album. -->
-			{% for album in albums %}
-			<table class="table album-table" id='album-{{album.title}}' hidden = true>
-				<tbody>
-					{% for track in album.tracks %}
-					{% set tid = album.title + "-" + track.url.split('/')[-1] %}
-					<tr>
-						<td class="track">
-							<p class="lead track-title">{{track.sc.title}} (...loading)</p>
-							<div class="track-url" hidden=true>
-								{{ track.url }}</div>
-						</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-			{% endfor %}
-		</div>
-		<div id="dan-contact" hidden=true>
-			<h2 class="leading"> {{ dan_descr }} </h2>
-		</div>
+    <div class="container">
+        <div id="dan-body" hidden=1>
+            <div class="row album-row">
+                {% for album in albums %}
+                <div href="" class="col-sm-1 album-col">
+                    <img id="{{ album.title }}" src="{{ album.img }}"
+                        class="album-button" />
+                </div>
+                {% endfor %}
+            </div>
+            <!-- TODO: only show current album. -->
+            {% for album in albums %}
+            <table class="table album-table" id='album-{{album.title}}'
+                hidden=true>
+                <tbody>
+                    {% for track in album.tracks %} {% set tid =
+                    album.title + "-" + track.url.split('/')[-1] %}
+                    <tr>
+                        <td class="track">
+                            <p class="lead track-title">{{track.sc.title}}
+                                (...loading)</p>
+                            <div class="track-url" hidden=true>{{
+                                track.url }}</div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endfor %}
+        </div>
+        <div id="dan-contact" hidden=true>
+            <h2 class="leading">{{ dan_descr }}</h2>
+        </div>
 
-	</div>
-	<!-- /.container -->
+    </div>
+    <!-- /.container -->
 
 
 
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src={{bootstrap_js_fname}}></script>
-	<script src="http://connect.soundcloud.com/sdk.js">
-		
-	</script>
-	<script>
-		SC.initialize({
-			client_id : 'feadf530fe2b6e545774f60b12b24cf2'
-		});
-	</script>
-	<script type="text/javascript" src="{{ dan_js_fname }}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src={{bootstrap_js_fname}}></script>
+    <script src="http://connect.soundcloud.com/sdk.js">
+                    
+                </script>
+    <script>
+                    SC.initialize({
+                        client_id : 'feadf530fe2b6e545774f60b12b24cf2'
+                    });
+                </script>
+    <script type="text/javascript" src="{{ dan_js_fname }}"></script>
 </body>
 </html>
