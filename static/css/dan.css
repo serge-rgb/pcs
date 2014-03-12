@@ -15,3 +15,7 @@ body {
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
+
+.album-button {
+    width: 50px;
+}

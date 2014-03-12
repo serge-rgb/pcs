@@ -9,6 +9,7 @@ USE_MIN = True
 
 MIN_BLACKLIST = ['js/dan.js', 'css/dan.css']
 
+IMG_EXTS = ['png', 'jpg']
 
 def static(name):
     'foo.ext -> (foo.ext | foo.min.ext)'
@@ -17,7 +18,7 @@ def static(name):
     fname = strs[0]
     ext = strs[1]
 
-    if not USE_MIN or ext == "png" or name in MIN_BLACKLIST:
+    if not USE_MIN or ext in IMG_EXTS or name in MIN_BLACKLIST:
         return prelude + name
 
     if USE_MIN and ext == 'js' or ext == 'css' and not (name in MIN_BLACKLIST):
@@ -53,16 +54,15 @@ Daniel Gonzalez
 dgonzalez@berklee.edu
 '''
 
-albums = [Album('foo',
-                static('img/Placeholder.png'),
-                [Track(client,
-                       'https://soundcloud.com/dan_music/last-time')]),
-          Album('bar',
-                static('img/Placeholder.png'),
-                [Track(client,
-                       'https://soundcloud.com/dan_music/google-plex-v-hope'),
-                 Track(client,
-                       'https://soundcloud.com/dan_music/googleplex-iv-home'),
+albums = [Album('ep1',
+                static('img/ep1.jpg'),
+                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
+                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
+                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
+                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
+                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
+                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
+                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
                  ]),
           ]
 
