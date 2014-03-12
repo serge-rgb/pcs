@@ -64,7 +64,40 @@ albums = [Album('ep1',
                  Track(client, 'https://soundcloud.com/dan_music/your-way'),
                  Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
                  ]),
-          ]
+
+          Album('ep2',
+                static('img/ep1.jpg'),
+                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
+                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
+                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
+                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
+                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
+                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
+                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
+                 ]),
+
+        Album('ep3',
+                static('img/ep1.jpg'),
+                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
+                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
+                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
+                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
+                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
+                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
+                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
+                 ]),
+
+        Album('ep4',
+                static('img/ep1.jpg'),
+                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
+                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
+                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
+                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
+                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
+                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
+                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
+                 ]),
+]
 
 
 @app.route('/')
