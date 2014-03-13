@@ -13,7 +13,7 @@ IMG_EXTS = ['png', 'jpg']
 
 def static(name):
     'foo.ext -> (foo.ext | foo.min.ext)'
-    prelude = 'static/'
+    prelude = ''
     strs = name.split('.')
     fname = strs[0]
     ext = strs[1]
