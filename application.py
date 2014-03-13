@@ -5,24 +5,23 @@ from mimetypes import init
 import soundcloud
 
 USE_MIN = False
-USE_MIN = True
+# USE_MIN = True
 
-MIN_BLACKLIST = ['js/dan.js', 'css/dan.css']
+MIN_BLACKLIST = ['dan.js', 'dan.css']
 
 IMG_EXTS = ['png', 'jpg']
 
 def static(name):
     'foo.ext -> (foo.ext | foo.min.ext)'
-    prelude = ''
+    prelude = 'static/'
     strs = name.split('.')
     fname = strs[0]
     ext = strs[1]
 
-    if not USE_MIN or ext in IMG_EXTS or name in MIN_BLACKLIST:
-        return prelude + name
-
     if USE_MIN and ext == 'js' or ext == 'css' and not (name in MIN_BLACKLIST):
         return prelude + fname + '.min.' + ext
+    else:
+        return prelude + name
 
     return 'NOPE'
 
@@ -55,7 +54,7 @@ dgonzalez@berklee.edu
 '''
 
 albums = [Album('ep1',
-                static('img/ep1.jpg'),
+                static('ep1.jpg'),
                 [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
                  Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
                  Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
@@ -66,7 +65,7 @@ albums = [Album('ep1',
                  ]),
 
           Album('ep2',
-                static('img/ep1.jpg'),
+                static('ep1.jpg'),
                 [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
                  Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
                  Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
@@ -77,7 +76,7 @@ albums = [Album('ep1',
                  ]),
 
         Album('ep3',
-                static('img/ep1.jpg'),
+                static('ep1.jpg'),
                 [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
                  Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
                  Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
@@ -88,7 +87,7 @@ albums = [Album('ep1',
                  ]),
 
         Album('ep4',
-                static('img/ep1.jpg'),
+                static('ep1.jpg'),
                 [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
                  Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
                  Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
@@ -116,10 +115,10 @@ def dan_main():
     dan_file.close()
     tmpl = Template(dan_src)
     index_str = tmpl.render(name='Daniel',
-                        bootstrap_js_fname=static('js/bootstrap.js'),
-                        bootstrap_css_fname=static('css/bootstrap.css'),
-                        dan_css_fname=static('css/dan.css'),
-                        dan_js_fname=static('js/dan.js'),
+                        bootstrap_js_fname=static('bootstrap.js'),
+                        bootstrap_css_fname=static('bootstrap.css'),
+                        dan_css_fname=static('dan.css'),
+                        dan_js_fname=static('dan.js'),
                         albums=albums,
                         dan_descr=gen_contact_html(dan_descr),
                         )
