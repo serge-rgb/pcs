@@ -26,8 +26,8 @@ def static(name):
 
     return 'NOPE'
 
-app = Flask(__name__)
-app.debug = True
+application = Flask(__name__)
+application.debug = True
 
 
 class Track(object):
@@ -100,7 +100,7 @@ albums = [Album('ep1',
 ]
 
 
-@app.route('/')
+@application.route('/')
 def dan_main():
     def gen_contact_html(dan_descr):
         lines = dan_descr.split('\n');
@@ -128,6 +128,6 @@ def dan_main():
 
 if __name__ == '__main__':
     dan_init()
-#     app.debug = False
-    app.run(host='0.0.0.0')
-#     app.run()
+#     application.debug = False
+    application.run(host='0.0.0.0')
+#     application.run()
