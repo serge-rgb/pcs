@@ -49,6 +49,9 @@ function scope() {
                     var row = "album-" + $(this).attr("id");
                     var element = $(document).find("#" + row);
                     selectAlbum(element);
+                    $('html, body').animate(
+                        { scrollTop: ($(".album-row").height()) },
+                        500);
                 });
                 $(".track").click(function(e) {
                     var url = $(this).find(".track-url").html();
