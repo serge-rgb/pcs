@@ -53,51 +53,55 @@ Daniel Gonzalez
 dgonzalez@berklee.edu
 '''
 
-albums = [Album('ep1',
-                static('ep1.jpg'),
-                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
-                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
-                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
-                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
-                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
-                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
-                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
-                 ]),
+albums = [
+        Album('ep1',
+            static('ep1.jpg'),
+            [
+                Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
+                Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
+                Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
+                Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
+                Track(client, 'https://soundcloud.com/dan_music/ladder'),
+                Track(client, 'https://soundcloud.com/dan_music/your-way'),
+                Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
+                ]),
 
-          Album('ep2',
-                static('ep1.jpg'),
-                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
-                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
-                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
-                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
-                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
-                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
-                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
-                 ]),
+        Album('ep2',
+            static('ep2.jpg'),
+            [
+                Track(client, 'https://soundcloud.com/dan_music/another-dream'),
+                Track(client, 'https://soundcloud.com/dan_music/the-lost-ark'),
+                Track(client, 'https://soundcloud.com/dan_music/steps-of-creation'),
+                Track(client, 'https://soundcloud.com/dan_music/for-all'),
+                Track(client, 'https://soundcloud.com/dan_music/ratatrap'),
+                Track(client, 'https://soundcloud.com/dan_music/northern-connection'),
+                Track(client, 'https://soundcloud.com/dan_music/vii'),
+                ]),
 
         Album('ep3',
-                static('ep1.jpg'),
-                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
-                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
-                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
-                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
-                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
-                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
-                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
-                 ]),
+            static('ep3.jpg'),
+            [
+                Track(client, 'https://soundcloud.com/dan_music/song-01'),
+                Track(client, 'https://soundcloud.com/dan_music/let-the-music-come-in-feat'),
+                Track(client, 'https://soundcloud.com/dan_music/lights-feat-gracie-jessop'),
+                Track(client, 'https://soundcloud.com/dan_music/dance-in-the-universe-feat-dan'),
+                Track(client, 'https://soundcloud.com/dan_music/hidden-memories'),
+                Track(client, 'https://soundcloud.com/dan_music/tonight-feat-kristen-olsson'),
+                ]),
 
         Album('ep4',
-                static('ep1.jpg'),
-                [Track(client, 'https://soundcloud.com/dan_music/what-couldve-been-feat-zoya'),
-                 Track(client, 'https://soundcloud.com/dan_music/coyolxauhqui'),
-                 Track(client, 'https://soundcloud.com/dan_music/blue-dream'),
-                 Track(client, 'https://soundcloud.com/dan_music/93-n-feat-old-boy'),
-                 Track(client, 'https://soundcloud.com/dan_music/ladder'),
-                 Track(client, 'https://soundcloud.com/dan_music/your-way'),
-                 Track(client, 'https://soundcloud.com/dan_music/chirality-feat-mayssa-karaa'),
-                 ]),
-]
+            static('ep4.jpg'),
+            [
 
+                Track(client, 'https://soundcloud.com/dan_music/killing-time'),
+                Track(client, 'https://soundcloud.com/dan_music/oiee-oiee'),
+                Track(client, 'https://soundcloud.com/dan_music/simmering-sun'),
+                Track(client, 'https://soundcloud.com/dan_music/monday-suckz'),
+                Track(client, 'https://soundcloud.com/dan_music/dafunk'),
+                Track(client, 'https://soundcloud.com/dan_music/garde'),
+
+                ]),
+            ]
 
 @application.route('/')
 def dan_main():
